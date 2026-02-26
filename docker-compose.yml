@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - AEROTICA_CONFIG=/app/config/production.yaml
+      - DB_PASSWORD=${DB_PASSWORD}
+      - SLACK_WEBHOOK=${SLACK_WEBHOOK}
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    command: uvicorn aerotica.api.main:app --host 0.0.0.0 --port 8000 --workers 4
+    restart: always
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - aerotica_network
+
+  dashboard:
+    build: ./dashboard
+    ports:
+      - "8501:8501"
+    environment:
+      - API_URL=http://api:8000
+    depends_on:
+      - api
+    restart: always
+    networks:
+      - aerotica_network
+
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_USER=aerotica
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=aerotica
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - aerotica_network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: always
+    networks:
+      - aerotica_network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - api
+      - dashboard
+    restart: always
+    networks:
+      - aerotica_network
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  aerotica_network:
+    driver: bridge

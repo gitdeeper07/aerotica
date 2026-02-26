@@ -1,0 +1,45 @@
+# Tokyo Urban Site Configuration
+
+site:
+  id: "tokyo_urban"
+  name: "Tokyo Metropolitan Area"
+  latitude: 35.6762
+  longitude: 139.6503
+  climate_zone: "temperate"
+  site_type: "urban_coastal"
+  elevation_m: 40
+
+assessment:
+  ake_threshold: 0.75
+  min_height_m: 15
+  min_area_m2: 50
+  lidar_resolution: 2.0
+
+parameters:
+  ked:
+    height_correction: true
+    urban_bias_correction: true
+  lrc:
+    terrain_type: "urban_high"
+    resolution: 2.0
+  vsr:
+    stability_correction: true
+    reference_height: 60
+
+alerts:
+  enabled: true
+  thd_threshold: 0.7
+  check_interval: 30
+  notification_channels:
+    - "console"
+    - "file"
+
+data:
+  lidar: "data/lidar/tokyo_2m_dsm.tif"
+  climate_ref: "data/reference/tokyo_climatology.nc"
+  building_footprints: "data/gis/tokyo_buildings.shp"
+
+output:
+  reports_dir: "reports/tokyo/"
+  geojson: "tokyo_viable_sites.geojson"
+  csv: "tokyo_assessment.csv"

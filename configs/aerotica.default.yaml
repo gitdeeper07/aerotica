@@ -1,0 +1,89 @@
+# AEROTICA Default Configuration
+
+# Server settings
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  timeout: 60
+
+# Database
+database:
+  url: "postgresql://aerotica:${DB_PASSWORD}@localhost:5432/aerotica"
+  pool_size: 10
+  max_overflow: 20
+
+# PINN Model
+pinn:
+  model_path: "models/pinn_v1/"
+  device: "cpu"  # or "cuda"
+  batch_size: 32
+  inference_workers: 2
+
+# AKE Parameters
+parameters:
+  ked:
+    weight: 0.22
+    enabled: true
+    air_density: 1.225
+  tii:
+    weight: 0.16
+    enabled: true
+    sampling_freq: 1.0
+  vsr:
+    weight: 0.14
+    enabled: true
+    stability_correction: true
+  aod:
+    weight: 0.12
+    enabled: true
+    wavelength: 550
+  thd:
+    weight: 0.10
+    enabled: true
+    threshold: 0.7
+  pgf:
+    weight: 0.08
+    enabled: true
+  hci:
+    weight: 0.07
+    enabled: true
+  asi:
+    weight: 0.06
+    enabled: true
+  lrc:
+    weight: 0.05
+    enabled: true
+    resolution: 2.0  # meters
+
+# Gust Alerts
+alerts:
+  enabled: true
+  check_interval: 30  # seconds
+  thd_threshold: 0.7
+  notification_channels:
+    - type: "console"
+    - type: "file"
+      path: "logs/alerts.log"
+
+# Monitoring
+monitoring:
+  metrics_port: 9090
+  health_check_interval: 30
+  log_level: "INFO"
+
+# Data paths
+data:
+  raw: "data/raw/"
+  processed: "data/processed/"
+  reference: "data/reference/"
+  realtime: "data/realtime/"
+
+# Climate zones
+climate_zones:
+  - "tropical"
+  - "arid"
+  - "temperate"
+  - "continental"
+  - "polar"
+  - "high_altitude"

@@ -1,0 +1,138 @@
+image: python:3.11
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  POETRY_VERSION: "1.7.0"
+  DVC_VERSION: "3.0.0"
+
+cache:
+  paths:
+    - .cache/pip
+    - .venv/
+    - .dvc/cache
+
+stages:
+  - test
+  - build
+  - deploy
+  - benchmark
+
+before_script:
+  - python --version
+  - pip install virtualenv
+  - virtualenv .venv
+  - source .venv/bin/activate
+  - pip install --upgrade pip setuptools wheel
+  - pip install -r requirements.txt
+  - pip install pytest pytest-cov pytest-xdist
+  - pip install dvc
+
+.test_template: &test_definition
+  stage: test
+  script:
+    - pytest tests/unit/ -v --cov=aerotica --cov-report=term --cov-report=xml --cov-report=html
+    - pytest tests/integration/ -v --workers 2
+  artifacts:
+    paths:
+      - coverage.xml
+      - htmlcov/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+    expire_in: 1 week
+
+test:python38:
+  image: python:3.8
+  <<: *test_definition
+
+test:python39:
+  image: python:3.9
+  <<: *test_definition
+
+test:python310:
+  image: python:3.10
+  <<: *test_definition
+
+test:python311:
+  image: python:3.11
+  <<: *test_definition
+
+lint:
+  stage: test
+  script:
+    - pip install ruff black mypy
+    - ruff check aerotica/ tests/
+    - black --check aerotica/ tests/
+    - mypy aerotica/ --ignore-missing-imports
+  allow_failure: false
+
+benchmark:
+  stage: benchmark
+  script:
+    - python scripts/run_benchmarks.py --output benchmarks/results.json
+  artifacts:
+    paths:
+      - benchmarks/results.json
+    expire_in: 1 month
+  only:
+    - main
+    - tags
+
+build:
+  stage: build
+  script:
+    - pip install build twine
+    - python -m build
+    - twine check dist/*
+  artifacts:
+    paths:
+      - dist/
+    expire_in: 1 week
+  only:
+    - tags
+    - main
+
+pages:
+  stage: deploy
+  script:
+    - pip install mkdocs mkdocs-material mkdocstrings[python] mkdocs-jupyter
+    - mkdocs build --site-dir public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+
+deploy:pypi:
+  stage: deploy
+  script:
+    - pip install twine
+    - TWINE_PASSWORD=${CI_JOB_TOKEN} TWINE_USERNAME=gitlab-ci-token python -m twine upload --repository-url ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/pypi dist/*
+  only:
+    - tags
+  environment:
+    name: pypi
+    url: https://gitlab.com/gitdeeper07/aerotica/-/packages
+
+deploy:netlify:
+  stage: deploy
+  script:
+    - npm install -g netlify-cli
+    - mkdocs build
+    - netlify deploy --prod --dir=site --site=${NETLIFY_SITE_ID}
+  only:
+    - main
+  environment:
+    name: production
+    url: https://aerotica.netlify.app
+
+validate:
+  stage: test
+  script:
+    - python scripts/run_validation.py --dataset small
+    - python scripts/compute_ake.py --test
+  artifacts:
+    paths:
+      - reports/validation/
+    expire_in: 1 month

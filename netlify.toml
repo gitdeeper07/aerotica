@@ -1,0 +1,29 @@
+[build]
+  command = "mkdocs build"
+  publish = "site"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+  MKDOCS_CONFIG = "mkdocs.yml"
+
+[context.production]
+  environment = { MKDOCS_CONFIG = "mkdocs.yml" }
+
+[context.branch-deploy]
+  command = "mkdocs build"
+
+[context.deploy-preview]
+  command = "mkdocs build"
+
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.aerotica.org/:splat"
+  status = 200
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"

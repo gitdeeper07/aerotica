@@ -1,0 +1,53 @@
+# Core dependencies
+numpy>=1.21.0
+scipy>=1.7.0
+pandas>=1.3.0
+xarray>=2022.3.0
+netCDF4>=1.5.8
+
+# Machine Learning
+torch>=2.3.0
+torchvision>=0.18.0
+torchaudio>=2.3.0
+
+# Physics-Informed Neural Networks
+deepxde>=1.9.0
+
+# Geospatial
+gdal>=3.4.0
+rasterio>=1.3.0
+shapely>=2.0.0
+pyproj>=3.4.0
+geopandas>=0.12.0
+
+# Visualization
+matplotlib>=3.5.0
+seaborn>=0.12.0
+plotly>=5.10.0
+cartopy>=0.21.0
+
+# Data processing
+pyyaml>=6.0
+python-dotenv>=0.19.0
+click>=8.0.0
+tqdm>=4.64.0
+h5py>=3.7.0
+pydantic>=1.10.0
+
+# Web/API (optional)
+fastapi>=0.95.0
+uvicorn>=0.21.0
+pydantic>=1.10.0
+
+# Development
+pytest>=7.0.0
+pytest-cov>=4.0.0
+black>=22.0.0
+ruff>=0.0.260
+mypy>=1.0.0
+pre-commit>=3.0.0
+
+# Documentation
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+mkdocstrings[python]>=0.20.0

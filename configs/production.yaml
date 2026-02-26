@@ -1,0 +1,86 @@
+# AEROTICA Production Configuration
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  reload: false
+  timeout: 120
+
+database:
+  url: "postgresql://aerotica:${DB_PASSWORD}@postgres:5432/aerotica"
+  pool_size: 20
+  max_overflow: 40
+
+pinn:
+  model_path: "/app/models/pinn_v1/"
+  device: "cuda"
+  batch_size: 32
+  inference_workers: 4
+
+parameters:
+  ked:
+    weight: 0.22
+    enabled: true
+    air_density: 1.225
+  tii:
+    weight: 0.16
+    enabled: true
+    sampling_freq: 1.0
+  vsr:
+    weight: 0.14
+    enabled: true
+    stability_correction: true
+  aod:
+    weight: 0.12
+    enabled: true
+    wavelength: 550
+  thd:
+    weight: 0.10
+    enabled: true
+    threshold: 0.7
+  pgf:
+    weight: 0.08
+    enabled: true
+  hci:
+    weight: 0.07
+    enabled: true
+  asi:
+    weight: 0.06
+    enabled: true
+  lrc:
+    weight: 0.05
+    enabled: true
+    resolution: 2.0
+
+alerts:
+  enabled: true
+  check_interval: 30
+  thd_threshold: 0.7
+  notification_channels:
+    - type: "console"
+    - type: "file"
+      path: "logs/alerts.log"
+    - type: "slack"
+      webhook: "${SLACK_WEBHOOK}"
+    - type: "email"
+      recipients: ["ops@aerotica.org"]
+
+monitoring:
+  metrics_port: 9090
+  health_check_interval: 30
+  log_level: "INFO"
+
+data:
+  raw: "/data/raw/"
+  processed: "/data/processed/"
+  reference: "/data/reference/"
+  realtime: "/data/realtime/"
+
+climate_zones:
+  - "tropical"
+  - "arid"
+  - "temperate"
+  - "continental"
+  - "polar"
+  - "high_altitude"

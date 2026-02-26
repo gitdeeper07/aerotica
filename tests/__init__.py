@@ -1,0 +1,1 @@
+"""AEROTICA test suite."""

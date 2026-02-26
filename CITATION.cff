@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use AEROTICA in your research, please cite it as below."
+title: "AEROTICA: An Intelligent Computational Framework for Atmospheric Kinetic Energy Mapping and Aero-Elastic Resilience"
+authors:
+  - family-names: "Baladi"
+    given-names: "Samir"
+    email: "gitdeeper@gmail.com"
+    orcid: "https://orcid.org/0009-0003-8903-0029"
+    affiliation: "Ronin Institute / Rite of Renaissance"
+date-released: 2025-02-24
+version: "1.0.0"
+doi: "10.14293/AEROTICA.2025.001"
+repository-code: "https://gitlab.com/gitdeeper07/aerotica"
+license: "CC-BY-4.0"
+keywords:
+  - "atmospheric physics"
+  - "kinetic energy density"
+  - "turbulence intensity"
+  - "wind shear"
+  - "Physics-Informed Neural Networks"
+  - "Navier-Stokes"
+  - "aero-elastic resilience"
+  - "smart grid protection"
+  - "renewable energy"
+  - "planetary boundary layer"
+  - "thermal helicity"

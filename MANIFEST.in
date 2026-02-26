@@ -1,0 +1,24 @@
+include README.md
+include LICENSE
+include requirements.txt
+include requirements-dev.txt
+include pyproject.toml
+include setup.cfg
+include .coveragerc
+include .pre-commit-config.yaml
+
+recursive-include src/aerotica *.py
+recursive-include tests *.py
+recursive-include docs *.md *.rst *.yml
+recursive-include examples *.py *.ipynb
+recursive-include config *.yaml *.yml
+recursive-include data/sample *.nc *.csv *.tif
+
+include scripts/*.py
+include docker/*.Dockerfile
+include docker-compose*.yml
+include kubernetes/*.yaml
+
+exclude .gitignore
+exclude .gitlab-ci.yml
+exclude .readthedocs.yaml
