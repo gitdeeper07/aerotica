@@ -23,7 +23,7 @@
 ---
 
 [![DOI](https://img.shields.io/badge/DOI-10.14293%2FAEROTICA.2026.001-1565C0?style=for-the-badge&logo=doi)](https://doi.org/10.14293/AEROTICA.2026.001)
-[![Zenodo](https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.aerotica2026-0D47A1?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.aerotica2026)
+[![Zenodo](https://img.shields.io/badge/Zenodo-10.5281%2Fzenodo.18766136?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.18766136)
 [![OSF](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FAEROTICA-1976D2?style=for-the-badge)](https://doi.org/10.17605/OSF.IO/AEROTICA)
 
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
