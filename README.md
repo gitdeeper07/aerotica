@@ -864,7 +864,7 @@ AEROTICA is the **fourth and final framework** in the Rite of Renaissance series
   version   = {1.0.0},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.aerotica2026},
-  url       = {https://doi.org/10.5281/zenodo.aerotica2026}
+  url       = {[https://doi.org/10.5281/zenodo.18766136](https://doi.org/10.5281/zenodo.18766136)}
 }
 ```
 
@@ -879,8 +879,8 @@ AEROTICA is fully committed to open science principles. All components are publi
 | 🦊 GitLab (primary) | [gitlab.com/gitdeeper07/aerotica](https://gitlab.com/gitdeeper07/aerotica) |
 | 🐙 GitHub (mirror) | [github.com/gitdeeper07/aerotica](https://github.com/gitdeeper07/aerotica) |
 | 🪨 Codeberg | [codeberg.org/gitdeeper07/aerotica](https://codeberg.org/gitdeeper07/aerotica) |
-| 🗄️ Zenodo dataset + weights | [doi.org/10.5281/zenodo.aerotica2026](https://doi.org/10.5281/zenodo.aerotica2026) |
-| 📋 OSF pre-registration | [doi.org/10.17605/OSF.IO/AEROTICA](https://doi.org/10.17605/OSF.IO/AEROTICA) |
+| 🗄️ Zenodo dataset + weights | [doi.org/10.5281/zenodo.aerotica2026]([https](https://doi.org/10.5281/zenodo.18766136)) |
+| 📋 OSF pre-registration | [(https://doi.org/10.17605/OSF.IO/QC76H)](https://doi.org/10.17605/OSF.IO/QC76H)) |
 | 📦 PyPI package | [pypi.org/project/aerotica-ake](https://pypi.org/project/aerotica-ake/) |
 | 🆔 ORCID | [orcid.org/0009-0003-8903-0029](https://orcid.org/0009-0003-8903-0029) |
 | 🌐 Website | [aerotica-science.netlify.app](https://aerotica-science.netlify.app) |
@@ -944,7 +944,7 @@ Offshore LIDAR campaign data are subject to data-sharing agreements with wind fa
 
 [![GitLab](https://img.shields.io/badge/GitLab-gitdeeper07%2Faerotica-FC6D26?style=for-the-badge&logo=gitlab)](https://gitlab.com/gitdeeper07/aerotica)
 [![GitHub](https://img.shields.io/badge/GitHub-gitdeeper07%2Faerotica-181717?style=for-the-badge&logo=github)](https://github.com/gitdeeper07/aerotica)
-[![Website](https://img.shields.io/badge/Website-aerotica--science.netlify.app-1565C0?style=for-the-badge&logo=netlify)](https://aerotica-science.netlify.app)
+[![Website](https://img.shields.io/badge/Website-aerotica-.netlify.app-1565C0?style=for-the-badge&logo=netlify)](https://aerotica.netlify.app)
 [![Email](https://img.shields.io/badge/Email-gitdeeper%40gmail.com-D14836?style=for-the-badge&logo=gmail)](mailto:gitdeeper@gmail.com)
 
 <br>
