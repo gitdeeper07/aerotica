@@ -24,8 +24,7 @@
 
 [![DOI](https://img.shields.io/badge/DOI-10.14293%2FAEROTICA.2026.001-1565C0?style=for-the-badge&logo=doi)](https://doi.org/10.14293/AEROTICA.2026.001)
 [![Zenodo](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18766136-blue?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.18766136)
-[![OSF](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FAEROTICA-1976D2?style=for-the-badge)](https://doi.org/10.17605/OSF.IO/AEROTICA)
-
+[![OSF](https://img.shields.io/badge/OSF-10.17605%2FOSF.IO%2FQC76H-1976D2?style=for-the-badge)](https://doi.org/10.17605/OSF.IO/QC76H)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.3%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![PyPI](https://img.shields.io/badge/PyPI-aerotica--ake-42A5F5?style=for-the-badge&logo=pypi&logoColor=white)](https://pypi.org/project/aerotica-ake/)
