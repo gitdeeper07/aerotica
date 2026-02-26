@@ -944,7 +944,7 @@ Offshore LIDAR campaign data are subject to data-sharing agreements with wind fa
 
 [![GitLab](https://img.shields.io/badge/GitLab-gitdeeper07%2Faerotica-FC6D26?style=for-the-badge&logo=gitlab)](https://gitlab.com/gitdeeper07/aerotica)
 [![GitHub](https://img.shields.io/badge/GitHub-gitdeeper07%2Faerotica-181717?style=for-the-badge&logo=github)](https://github.com/gitdeeper07/aerotica)
-[![Website](https://img.shields.io/badge/Website-aerotica-.netlify.app-1565C0?style=for-the-badge&logo=netlify)](https://aerotica.netlify.app)
+[![Website](https://img.shields.io/badge/Website-aerotica.netlify.app-1565C0?style=for-the-badge&logo=netlify)](https://aerotica.netlify.app)
 [![Email](https://img.shields.io/badge/Email-gitdeeper%40gmail.com-D14836?style=for-the-badge&logo=gmail)](mailto:gitdeeper@gmail.com)
 
 <br>
